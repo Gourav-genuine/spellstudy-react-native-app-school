@@ -263,7 +263,67 @@ const DashboardScreen = ({ navigation }) => {
 
   const handleTaskClick = (task) => {
     if (task.route) {
-      navigation.navigate(task.route);
+      // Handle navigation based on the route
+      switch (task.route) {
+        case 'AddStudentScreen':
+          navigation.navigate('Students', { screen: 'AddStudent' });
+          break;
+        case 'StudentsScreen':
+          navigation.navigate('Students', { screen: 'StudentsMain' });
+          break;
+        case 'AddClassScreen':
+          navigation.navigate('Classes', { screen: 'AddClass' });
+          break;
+        case 'ClassesScreen':
+          navigation.navigate('Classes', { screen: 'ClassesMain' });
+          break;
+        case 'AddStaffScreen':
+          navigation.navigate('Staff', { screen: 'AddStaff' });
+          break;
+        case 'StaffScreen':
+          navigation.navigate('Staff', { screen: 'StaffMain' });
+          break;
+        case 'AttendanceScreen':
+          navigation.navigate('Students', { screen: 'Attendance' });
+          break;
+        case 'TimetableScreen':
+          navigation.navigate('Classes', { screen: 'Timetable' });
+          break;
+        case 'FeesScreen':
+          navigation.navigate('Fees', { screen: 'FeesMain' });
+          break;
+        case 'SalaryScreen':
+          navigation.navigate('Fees', { screen: 'Salary' });
+          break;
+        case 'ExamsScreen':
+          navigation.navigate('More', { screen: 'Exams' });
+          break;
+        case 'ReportsScreen':
+          navigation.navigate('More', { screen: 'Reports' });
+          break;
+        case 'SyllabusScreen':
+          navigation.navigate('More', { screen: 'Syllabus' });
+          break;
+        case 'SocialMediaScreen':
+          navigation.navigate('More', { screen: 'SocialMedia' });
+          break;
+        case 'SettingsScreen':
+          navigation.navigate('More', { screen: 'Settings' });
+          break;
+        case 'ProfileScreen':
+          navigation.navigate('Dashboard', { screen: 'Profile' });
+          break;
+        case 'NotificationsScreen':
+          navigation.navigate('Dashboard', { screen: 'Notifications' });
+          break;
+        default:
+          // For routes that don't exist yet, show a placeholder
+          Alert.alert(
+            'Coming Soon',
+            `${task.title} feature is under development and will be available soon.`,
+            [{ text: 'OK' }]
+          );
+      }
     }
   };
 
@@ -379,7 +439,7 @@ const DashboardScreen = ({ navigation }) => {
             {hasPermission(["superuser", "admin"]) && (
               <TouchableOpacity 
                 style={styles.quickActionCard}
-                onPress={() => navigation.navigate('AddStudentScreen')}
+                onPress={() => navigation.navigate('Students', { screen: 'AddStudent' })}
                 activeOpacity={0.8}
               >
                 <View style={styles.quickActionIcon}>

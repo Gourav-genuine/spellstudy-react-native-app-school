@@ -28,6 +28,11 @@ import AddClassScreen from '../../screens/AddClassScreen';
 import AddStaffScreen from '../../screens/AddStaffScreen';
 import ProfileScreen from '../../screens/ProfileScreen';
 
+// Additional screens
+import SalaryScreen from '../../screens/SalaryScreen';
+import SyllabusScreen from '../../screens/SyllabusScreen';
+import SocialMediaScreen from '../../screens/SocialMediaScreen';
+
 // Custom components
 import CustomDrawerContent from '../ui/CustomDrawerContent';
 
@@ -170,6 +175,11 @@ const FeesStack = () => (
       component={FeesScreen}
       options={{ title: 'Fees Management' }}
     />
+    <Stack.Screen 
+      name="Salary" 
+      component={SalaryScreen}
+      options={{ title: 'Salary Management' }}
+    />
   </Stack.Navigator>
 );
 
@@ -213,6 +223,26 @@ const MoreStack = () => (
         title: 'Settings',
         drawerIcon: ({ color }) => (
           <Icon name="settings" size={24} color={color} />
+        ),
+      }}
+    />
+    <Drawer.Screen 
+      name="Syllabus" 
+      component={SyllabusScreen}
+      options={{
+        title: 'Syllabus',
+        drawerIcon: ({ color }) => (
+          <Icon name="book" size={24} color={color} />
+        ),
+      }}
+    />
+    <Drawer.Screen 
+      name="SocialMedia" 
+      component={SocialMediaScreen}
+      options={{
+        title: 'Social Media',
+        drawerIcon: ({ color }) => (
+          <Icon name="share" size={24} color={color} />
         ),
       }}
     />
